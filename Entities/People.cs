@@ -1,10 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace ExercicioFixacaoMetodosAbstratos.Entities
 {
-    class Pessoa
+    abstract class People
     {
+        public string Name { get; set; }
+        public double AnualIncome { get; set; }
+        public double Taxes { get; set; }
+
+        public People()
+        {
+
+        }
+
+        public People(string name, double anualIncome)
+        {
+            Name = name;
+            AnualIncome = anualIncome;
+        }
+
+        public override string ToString()
+        {
+            
+        }
     }
 }
