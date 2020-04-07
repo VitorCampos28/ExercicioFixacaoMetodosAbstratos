@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace ExercicioFixacaoMetodosAbstratos.Entities
@@ -7,7 +8,6 @@ namespace ExercicioFixacaoMetodosAbstratos.Entities
     class LegalPeople : People
     {
         public int NumberOfEmployee { get; set; }
-
         public LegalPeople()
         {
 
@@ -18,19 +18,17 @@ namespace ExercicioFixacaoMetodosAbstratos.Entities
             NumberOfEmployee = numberOfEmployee;
         }
 
-        public void CompanyTaxes()
+
+        public override double Tax()
         {
             if (NumberOfEmployee > 10)
             {
-                Taxes = AnualIncome * 0.14;
+                return AnualIncome * 0.14;
             }
             else
             {
-                Taxes = AnualIncome * 0.16;
+                return AnualIncome * 0.16;
             }
-
         }
-
-
     }
 }

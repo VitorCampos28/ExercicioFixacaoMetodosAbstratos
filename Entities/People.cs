@@ -9,22 +9,18 @@ namespace ExercicioFixacaoMetodosAbstratos.Entities
     {
         public string Name { get; set; }
         public double AnualIncome { get; set; }
-        public double Taxes { get; set; }
 
         public People()
         {
 
         }
-
         public People(string name, double anualIncome)
         {
             Name = name;
             AnualIncome = anualIncome;
         }
 
-        public override string ToString()
-        {
-            
-        }
+        public abstract double Tax();
+
     }
 }

@@ -8,7 +8,7 @@ namespace ExercicioFixacaoMetodosAbstratos.Entities
     class PhysicPeople : People
     {
         public double HealthExpenses { get; set; }
-
+        public double TaxesP { get; set; }
         public PhysicPeople()
         {
 
@@ -19,22 +19,17 @@ namespace ExercicioFixacaoMetodosAbstratos.Entities
             HealthExpenses = healthexpenses;
         }
 
-        public void PeopleTaxes()
+
+        public override double Tax()
         {
             if (AnualIncome < 20000.00)
             {
-                Taxes += AnualIncome * 0.15;
+                return AnualIncome * 0.15 - HealthExpenses * 0.5;
             }
             else
             {
-                Taxes += AnualIncome * 0.2;
+                return AnualIncome * 0.25 - HealthExpenses * 0.5;
             }
-            
-        }
-
-        public double healthCost()
-        {
-            return Taxes -= HealthExpenses * 0.5;
         }
     }
 }

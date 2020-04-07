@@ -1,13 +1,14 @@
 ﻿using ExercicioFixacaoMetodosAbstratos.Entities;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace ExercicioFixacaoMetodosAbstratos
 {
     class Program
     {
         static void Main(string[] args)
-        {
+         {
             List<People> list = new List<People>();
 
             Console.Write("Enter the number of tax payers: ");
@@ -28,6 +29,7 @@ namespace ExercicioFixacaoMetodosAbstratos
                     Console.Write("Health cost: ");
                     double healthCost = double.Parse(Console.ReadLine());
                     list.Add(new PhysicPeople(name, anualIncome, healthCost));
+                    
                 }
 
                 else
@@ -41,14 +43,17 @@ namespace ExercicioFixacaoMetodosAbstratos
 
             Console.WriteLine();
             Console.WriteLine("TAXES PAID: ");
-            double totalTaxes = 0;
+            double Ttaxes = 0;
             foreach(People obj in list)
             {
-                totalTaxes += obj.Taxes;
-                Console.WriteLine(obj);
+                double tax = obj.Tax();
+                Ttaxes += tax;
+                Console.WriteLine(obj.Name + ": $ " + tax.ToString("F2",CultureInfo.InvariantCulture));
             }
 
-            Console.WriteLine("Total Taxes: " + totalTaxes);
+            Console.Write("Total taxes: ");
+            Console.WriteLine(Ttaxes.ToString("F2",CultureInfo.InvariantCulture));
+
         }
     }
 }
